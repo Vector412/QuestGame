@@ -1,6 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Interactible : MonoBehaviour
-{}
+public abstract class Interactible : MonoBehaviour
+{
+    
+    public void ShowHint()
+    {
+       
+    }
+    public virtual void DoActivate()
+    {
+        Debug.Log("DoActivate");
+    }
+
+
+}

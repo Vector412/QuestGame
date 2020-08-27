@@ -10,7 +10,7 @@ public class Player : GenericSingletonClass<Player>
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
-    [SerializeField] private float rayDistance = 100;
+    [SerializeField] private float rayDistance = 10;
     [SerializeField] public LayerMask Ground;
 
     [SerializeField] GameObject light;
@@ -51,7 +51,7 @@ public class Player : GenericSingletonClass<Player>
         Ray MyRay;
         MyRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Debug.DrawRay(MyRay.origin, MyRay.direction * 10, Color.yellow);
+        Debug.DrawRay(MyRay.origin, MyRay.direction, Color.yellow);
         if (Physics.Raycast(MyRay, out hit, rayDistance))
         {
             InteractiveThing();
@@ -65,12 +65,8 @@ public class Player : GenericSingletonClass<Player>
         Interactible interactible = hit.collider.GetComponent<Interactible>();
         if (interactible != null)
         {
-            /*  if (Input.GetButtonDown("Fire1"))
-              {
-                    light.gameObject.SetActive(false);
-
-              }*/
-            Debug.Log(111);
+           
+            interactible.DoActivate();
         }
     }
 
