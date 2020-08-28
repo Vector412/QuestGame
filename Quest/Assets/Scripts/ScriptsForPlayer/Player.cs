@@ -13,7 +13,7 @@ public class Player : GenericSingletonClass<Player>
     [SerializeField] private float rayDistance = 10;
     [SerializeField] public LayerMask Ground;
 
-    [SerializeField] GameObject light;
+    //[SerializeField] GameObject light;
   
     [SerializeField] private LayerMask Things;
 
@@ -24,7 +24,7 @@ public class Player : GenericSingletonClass<Player>
     void Update()
     {
         MovePlayer();
-        FindOutWhatisObject();
+        //FindOutWhatisObject();
     }
 
     void MovePlayer()
@@ -46,18 +46,18 @@ public class Player : GenericSingletonClass<Player>
     }
 
 
-    public void FindOutWhatisObject()
-    {
-        Ray MyRay;
-        MyRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //public void FindOutWhatisObject()
+    //{
+    //    Ray MyRay;
+    //    MyRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Debug.DrawRay(MyRay.origin, MyRay.direction, Color.yellow);
-        if (Physics.Raycast(MyRay, out hit, rayDistance))
-        {
-            InteractiveThing();
-            DestroyThing();
-        }
-    }
+    //    Debug.DrawRay(MyRay.origin, MyRay.direction, Color.yellow);
+    //    if (Physics.Raycast(MyRay, out hit, rayDistance))
+    //    {
+    //        InteractiveThing();
+    //        DestroyThing();
+    //    }
+    //}
 
     public void InteractiveThing()
     {
