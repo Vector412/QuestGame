@@ -12,17 +12,15 @@ public class Player : GenericSingletonClass<Player>
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private float rayDistance = 10;
     [SerializeField] public LayerMask Ground;
-
-    [SerializeField] GameObject light;
-
+    [SerializeField] public GameObject screenKey;
+    //[SerializeField] GameObject light;
+  
     [SerializeField] private LayerMask Things;
 
     RaycastHit hit;
-    Interactible interactible;
-    IDestructible destructible;
     public bool isGround;
     Vector3 velocity;
-
+   
     void Update()
     {
         MovePlayer();
@@ -52,45 +50,43 @@ public class Player : GenericSingletonClass<Player>
     {
         Ray MyRay;
         MyRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         Debug.DrawRay(MyRay.origin, MyRay.direction, Color.yellow);
         if (Physics.Raycast(MyRay, out hit, rayDistance))
         {
-             var hitObj = hit.collider.gameObject;
-           
-            if (hitObj)
-            {
-                interactible = hitObj.GetComponent<Interactible>();
-                destructible = hitObj.GetComponent<IDestructible>();
-                DoInteractive();
-                DestroyThing();
-            }
+            InteractiveThing();
+            DestroyThing();
         }
-        else
-        {
-            interactible.ClearHint();
-        }
-
     }
 
-    public void DoInteractive()
+    public void InteractiveThing()
     {
+
+        Interactible interactible = hit.collider.GetComponent<Interactible>();
         if (interactible != null)
         {
-            interactible.ShowHint();
+            
             interactible.DoActivate();
         }
     }
 
-
     public void DestroyThing()
     {
+        Destructible destructible = hit.collider.GetComponent<Destructible>();
         if (destructible != null)
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("!!!!");
-                destructible.DestroyObjects();
-            }
+         //    Destroy(hit.collider.gameObject);
+            Debug.Log(222);
         }
     }
+
+     void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Item")
+        {
+            screenKey.SetActive(true);
+            other.gameObject.SetActive(false);
+        }
+    }
+    
 }

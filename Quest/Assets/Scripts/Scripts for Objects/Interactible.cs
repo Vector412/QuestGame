@@ -15,6 +15,7 @@ public abstract class Interactible : MonoBehaviour
     public virtual void DoActivate()
     {
         Debug.Log("DoActivate");
+        
     }
 
 
