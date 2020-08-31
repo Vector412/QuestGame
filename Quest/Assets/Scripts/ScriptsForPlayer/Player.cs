@@ -12,8 +12,8 @@ public class Player : GenericSingletonClass<Player>
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private float rayDistance = 10;
     [SerializeField] public LayerMask Ground;
-
-    [SerializeField] GameObject light;
+    [SerializeField] public GameObject screenKey;
+    //[SerializeField] GameObject light;
   
     [SerializeField] private LayerMask Things;
 
@@ -65,7 +65,7 @@ public class Player : GenericSingletonClass<Player>
         Interactible interactible = hit.collider.GetComponent<Interactible>();
         if (interactible != null)
         {
-           
+            
             interactible.DoActivate();
         }
     }
@@ -79,4 +79,14 @@ public class Player : GenericSingletonClass<Player>
             Debug.Log(222);
         }
     }
+
+     void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Item")
+        {
+            screenKey.SetActive(true);
+            other.gameObject.SetActive(false);
+        }
+    }
+    
 }
