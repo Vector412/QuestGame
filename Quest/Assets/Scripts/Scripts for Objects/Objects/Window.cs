@@ -6,7 +6,10 @@ public class Window : Interactible, IDestructible
 {
     public void DestroyObjects()
     {
-        Destroy(gameObject);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public override void DoActivate()

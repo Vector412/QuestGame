@@ -16,7 +16,8 @@ public class Player : GenericSingletonClass<Player>
     //[SerializeField] GameObject light;
   
     [SerializeField] private LayerMask Things;
-
+    Interactible interactible;
+    IDestructible destructible;
     RaycastHit hit;
     public bool isGround;
     Vector3 velocity;
@@ -54,28 +55,39 @@ public class Player : GenericSingletonClass<Player>
         Debug.DrawRay(MyRay.origin, MyRay.direction, Color.yellow);
         if (Physics.Raycast(MyRay, out hit, rayDistance))
         {
-            InteractiveThing();
-            DestroyThing();
+            var hitObj = hit.collider.gameObject;
+
+            if (hitObj)
+            {
+                destructible = hitObj.GetComponent<IDestructible>();
+                interactible = hitObj.GetComponent<Interactible>();
+                InteractiveThing();
+                DestroyThing();
+            }
+        }
+        else
+        {
+            interactible.ClearHint();
         }
     }
 
     public void InteractiveThing()
     {
 
-        Interactible interactible = hit.collider.GetComponent<Interactible>();
+      
         if (interactible != null)
         {
-            
+            interactible.ShowHint();
             interactible.DoActivate();
         }
     }
 
     public void DestroyThing()
     {
-        Destructible destructible = hit.collider.GetComponent<Destructible>();
+        
         if (destructible != null)
         {
-         //    Destroy(hit.collider.gameObject);
+            destructible.DestroyObjects();
             Debug.Log(222);
         }
     }
