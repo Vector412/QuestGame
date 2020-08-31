@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public abstract class Interactible : MonoBehaviour
 {
-    
-    public void ShowHint()
-    {
-       
-    }
+    [SerializeField] GameObject hint;
+
+    public void ShowHint() => hint.gameObject.SetActive(true);
+    public void ClearHint() => hint.gameObject.SetActive(false);
+   
+
+
     public virtual void DoActivate()
     {
         Debug.Log("DoActivate");

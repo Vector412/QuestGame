@@ -2,5 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destructible : MonoBehaviour
-{}
+public interface IDestructible
+{
+    void DestroyObjects();
+    
+    
+}
