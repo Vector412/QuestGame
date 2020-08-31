@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Window : Interactible
 {
+    BreakableWindow windows;
     public override void DoActivate()
     {
-        Debug.Log("Activate Window");
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("DoActivate");
+            windows.breakWindow();
+        }
+
     }
 }
