@@ -91,14 +91,4 @@ public class Player : GenericSingletonClass<Player>
             Debug.Log(222);
         }
     }
-
-     void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Item")
-        {
-            screenKey.SetActive(true);
-            other.gameObject.SetActive(false);
-        }
-    }
-    
 }
