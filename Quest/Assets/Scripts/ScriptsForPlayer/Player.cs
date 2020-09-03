@@ -53,10 +53,9 @@ public class Player : GenericSingletonClass<Player>
         MyRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         Debug.DrawRay(MyRay.origin, MyRay.direction, Color.yellow);
-        if (Physics.Raycast(MyRay, out hit, rayDistance))
+        if (Physics.Raycast(MyRay, out hit, rayDistance, Things))
         {
             var hitObj = hit.collider.gameObject;
-
             if (hitObj)
             {
                 destructible = hitObj.GetComponent<IDestructible>();
@@ -72,9 +71,7 @@ public class Player : GenericSingletonClass<Player>
     }
 
     public void InteractiveThing()
-    {
-
-      
+    { 
         if (interactible != null)
         {
             interactible.ShowHint();
@@ -88,7 +85,7 @@ public class Player : GenericSingletonClass<Player>
         if (destructible != null)
         {
             destructible.DestroyObjects();
-            Debug.Log(222);
+          
         }
     }
 }

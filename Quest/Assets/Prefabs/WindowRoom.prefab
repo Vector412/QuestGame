@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 347865239501316107}
   - component: {fileID: 316299490262435307}
   - component: {fileID: 379851048792989615}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WindowRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

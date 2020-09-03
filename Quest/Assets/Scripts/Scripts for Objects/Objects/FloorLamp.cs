@@ -6,36 +6,56 @@ public class FloorLamp : Interactible, IDestructible
 {
     [SerializeField] GameObject light ;
 
-    private bool isActiveLight = true;
+    [SerializeField] bool isActiveLight;
+
+
+    public void Start()
+    {
+        if (isActiveLight)
+        {
+            light.gameObject.SetActive(true);
+            isActiveLight = false;
+
+        }
+        else
+        {
+            light.gameObject.SetActive(false);
+            isActiveLight = true;
+        }
+    }
+   
+    public override void DoActivate()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {       
+            if (!isActiveLight)
+            {
+                OffLinght();
+            }
+            else
+            {
+                OnLight();
+            }
+
+        }
+    }
+
+    public void OffLinght()
+    {
+        light.gameObject.SetActive(false);
+        isActiveLight = true;
+    }
+    public void OnLight()
+    {
+        light.gameObject.SetActive(true);
+        isActiveLight = false;
+    }
+
     public void DestroyObjects()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Destroy(gameObject);
         }
-    }
-    public override void DoActivate()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-          
-            Debug.Log("Light");
-            if (isActiveLight)
-            {
-                light.gameObject.SetActive(true);
-                Debug.Log("Active");
-                isActiveLight = false;
-            }
-            else
-            {
-                light.gameObject.SetActive(false);
-                Debug.Log("False");
-                isActiveLight = true;
-            }
-
-
-        }
-
-      
     }
 }

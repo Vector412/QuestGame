@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 97586942836873975}
   - component: {fileID: 4738796341068050525}
   - component: {fileID: 4738796341068050527}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DoorV4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 2273786822200671762}
   - component: {fileID: 8135318985600950841}
   - component: {fileID: 4738796342004315282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 03_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 3446574341270197384}
   - component: {fileID: 1191405439123465408}
   - component: {fileID: 4738796340753722936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 01_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}

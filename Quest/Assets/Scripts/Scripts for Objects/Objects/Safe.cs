@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Safe : Interactible 
 {
     [SerializeField] GameObject showSafe;
-   
+    [SerializeField] Animator animator;
 
 
 
@@ -14,12 +14,7 @@ public class Safe : Interactible
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             showSafe.gameObject.SetActive(true);
-           
-
-
         }
     }
 
@@ -29,6 +24,7 @@ public class Safe : Interactible
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
         ClearHint();
+        animator.SetTrigger("Open");
         Debug.Log("Off");
 
     }

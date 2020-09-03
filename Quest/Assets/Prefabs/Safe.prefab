@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2241574694619890632}
   - component: {fileID: 583081702362782516}
   - component: {fileID: 4445932610022705393}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Safe_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2553620846862005319}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &583081702362782516
 MeshFilter:
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2856157270526371630}
   - component: {fileID: 4145509368312254267}
   - component: {fileID: 8095814427787098252}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_tongue_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 1152922334547324761}
   - component: {fileID: 8844565043464487296}
   - component: {fileID: 2127004961025919149}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Safe_elements_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2553620846862005319}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8844565043464487296
 MeshFilter:
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 2553620846862005319}
   - component: {fileID: 6931414237750348088}
   - component: {fileID: 3242701386979106661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Safe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,12 +264,12 @@ Transform:
   m_GameObject: {fileID: 2899077970881523453}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.86, y: 0, z: -2.79}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
-  - {fileID: 4618277917658821891}
   - {fileID: 2241574694619890632}
   - {fileID: 1152922334547324761}
   - {fileID: 1941409470279476645}
+  - {fileID: 3448158272239837868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 0}
+  showSafe: {fileID: 0}
 --- !u!1 &3088562038930311971
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +311,7 @@ GameObject:
   - component: {fileID: 3091697840597854781}
   - component: {fileID: 3114959594625196945}
   - component: {fileID: 454527142024640087}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_huge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +390,7 @@ GameObject:
   - component: {fileID: 3767293306597172806}
   - component: {fileID: 5191029088361810000}
   - component: {fileID: 4311486289394307457}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_hinge_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +469,7 @@ GameObject:
   - component: {fileID: 1941409470279476645}
   - component: {fileID: 4652055419468092906}
   - component: {fileID: 1109902770915717494}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Safe_elements_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +488,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2553620846862005319}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4652055419468092906
 MeshFilter:
@@ -536,6 +537,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &3721740933454589627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3448158272239837868}
+  m_Layer: 9
+  m_Name: Open
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3448158272239837868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721740933454589627}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.46, y: 6.81, z: 5.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4618277917658821891}
+  m_Father: {fileID: 2553620846862005319}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3815252588074516801
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +579,7 @@ GameObject:
   - component: {fileID: 4618277917658821891}
   - component: {fileID: 6092505634772886477}
   - component: {fileID: 6863179446111768944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3815252588074516801}
   m_LocalRotation: {x: -0, y: 0.0035703804, z: -0, w: 0.9999936}
-  m_LocalPosition: {x: -23.4, y: 0, z: 0.2}
+  m_LocalPosition: {x: 7.66, y: -7.32, z: -5.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5566899867895034514}
@@ -571,7 +603,7 @@ Transform:
   - {fileID: 2856157270526371630}
   - {fileID: 2724942929060928130}
   - {fileID: 7212029808813702906}
-  m_Father: {fileID: 2553620846862005319}
+  m_Father: {fileID: 3448158272239837868}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0.409, z: 0}
 --- !u!33 &6092505634772886477
@@ -632,7 +664,7 @@ GameObject:
   - component: {fileID: 5566899867895034514}
   - component: {fileID: 4519311591663606975}
   - component: {fileID: 5370981614751794211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +743,7 @@ GameObject:
   - component: {fileID: 7212029808813702906}
   - component: {fileID: 7933985753241674689}
   - component: {fileID: 3281926721559451535}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_tongue_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +822,7 @@ GameObject:
   - component: {fileID: 2724942929060928130}
   - component: {fileID: 2451452482691227875}
   - component: {fileID: 7750504920500255678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_tongue_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}

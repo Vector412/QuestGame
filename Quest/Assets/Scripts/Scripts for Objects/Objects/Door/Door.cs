@@ -4,27 +4,47 @@ using UnityEngine;
 
 public class Door : Interactible
 {
-    public AudioClip openDoor, closeDoor;
+    [SerializeField] public AudioClip openDoor, closeDoor;
     [SerializeField] Animator animDoor;
     [SerializeField] GameObject keyScreen;
+  
 
     public override void DoActivate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Debug.Log("YEah");
             if (keyScreen.activeInHierarchy == true)
             {
-                animDoor = GetComponent<Animator>();
-                GetComponent<AudioSource>().PlayOneShot(openDoor);
-                animDoor.SetBool("isOpen", true);
-                gameObject.GetComponent<BoxCollider>().enabled = false;
-                keyScreen.SetActive(false);
+                OpenDoor();
+                DeactivateDoor();
+
+             
             }
             else if (keyScreen.activeInHierarchy == false)
             {
-                GetComponent<AudioSource>().PlayOneShot(closeDoor);
+                Debug.Log("Close");
+                CloseDoor();
             }
         }
+    }
+
+    public void OpenDoor()
+    {
+        animDoor = GetComponent<Animator>();
+        GetComponent<AudioSource>().PlayOneShot(openDoor);
+        animDoor.SetBool("isOpen", true);
+    }
+
+    public void DeactivateDoor()
+    {
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
+        ClearHint();
+    }
+
+    public void CloseDoor()
+    {
+        GetComponent<AudioSource>().PlayOneShot(closeDoor);
     }
 }

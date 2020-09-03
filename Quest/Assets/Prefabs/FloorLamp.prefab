@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202385595}
   - component: {fileID: 202385596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 4707661242873711507}
   - component: {fileID: 4707661242873711505}
   - component: {fileID: 4511151534590224312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FloorLamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 4707661242873711535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.1499634, y: 0.32, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 202385595}
   m_Father: {fileID: 0}
