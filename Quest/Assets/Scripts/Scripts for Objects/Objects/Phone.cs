@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Phone : Interactible
 {
     [SerializeField] GameObject phoneIcon;
     [SerializeField] GameObject lockIcon;
+    [SerializeField] GameObject[] lockIcons;
+    [SerializeField] Text clock;
     [SerializeField] bool isActivePhone;
+    private bool phoneIsInterective;
 
 
     public void Start()
@@ -30,13 +34,16 @@ public class Phone : Interactible
         if (Input.GetKeyDown(KeyCode.F))
         {
             phoneIcon.gameObject.SetActive(true);
+            phoneIsInterective = true;
+
         }
 
     }
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        Clock();
+        if (Input.GetKeyDown(KeyCode.Space) && phoneIsInterective)
         {
 
             if (!isActivePhone)
@@ -47,8 +54,6 @@ public class Phone : Interactible
             {
                 Unlock();
             }
-
-
         }
     }
 
@@ -60,10 +65,17 @@ public class Phone : Interactible
     }
     public void Lock()
     {
-        lockIcon.gameObject.SetActive(false);
+        for(int i = 0; i < lockIcons.Length; i++)
+        {
+            lockIcons[i].SetActive(false);
+        }
         isActivePhone = true;
     }
 
+    public void Clock()
+    {
+        clock.text = DayNight.Instance.Hours.ToString() + ":" + DayNight.Instance.Minutes.ToString();
+    }
 
 
 

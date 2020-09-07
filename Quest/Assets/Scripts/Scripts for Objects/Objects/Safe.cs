@@ -7,6 +7,7 @@ public class Safe : Interactible
 {
     [SerializeField] GameObject showSafe;
     [SerializeField] Animator animator;
+     [SerializeField] public AudioClip openSafe;
 
 
 
@@ -20,13 +21,11 @@ public class Safe : Interactible
 
     public void Open()
     {
-        Debug.Log("Open");
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
         ClearHint();
         animator.SetTrigger("Open");
-        Debug.Log("Off");
-
+        GetComponent<AudioSource>().PlayOneShot(openSafe);
     }
 
     public void Close()

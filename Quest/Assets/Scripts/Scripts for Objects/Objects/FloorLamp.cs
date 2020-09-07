@@ -5,6 +5,7 @@ using UnityEngine;
 public class FloorLamp : Interactible, IDestructible
 {
     [SerializeField] GameObject light ;
+    [SerializeField] public AudioClip destroyLamp, onLight;
 
     [SerializeField] bool isActiveLight;
 
@@ -13,14 +14,11 @@ public class FloorLamp : Interactible, IDestructible
     {
         if (isActiveLight)
         {
-            light.gameObject.SetActive(true);
-            isActiveLight = false;
-
+            Light(true, false, onLight);
         }
         else
         {
-            light.gameObject.SetActive(false);
-            isActiveLight = true;
+            Light(false, true, onLight);
         }
     }
    
@@ -30,32 +28,35 @@ public class FloorLamp : Interactible, IDestructible
         {       
             if (!isActiveLight)
             {
-                OffLinght();
+                Light(false, true, onLight);
             }
             else
             {
-                OnLight();
+                Light(true,false, onLight);
             }
 
         }
     }
 
-    public void OffLinght()
+    public void Light(bool gameObjActive, bool isLight, AudioClip audioClip)
     {
-        light.gameObject.SetActive(false);
-        isActiveLight = true;
+        light.gameObject.SetActive(gameObjActive);
+        isActiveLight = isLight;
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
-    public void OnLight()
-    {
-        light.gameObject.SetActive(true);
-        isActiveLight = false;
-    }
+
 
     public void DestroyObjects()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Destroy(gameObject);
+           
+            GetComponent<AudioSource>().PlayOneShot(destroyLamp);
+            Collider collider = GetComponent<Collider>();
+            collider.enabled = false;
+            ClearHint();
+            Destroy(gameObject, 0.5f);
+          
         }
     }
 }

@@ -13,7 +13,6 @@ public class Door : Interactible
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("YEah");
             if (keyScreen.activeInHierarchy == true)
             {
                 OpenDoor();
@@ -23,7 +22,6 @@ public class Door : Interactible
             }
             else if (keyScreen.activeInHierarchy == false)
             {
-                Debug.Log("Close");
                 CloseDoor();
             }
         }
@@ -41,6 +39,7 @@ public class Door : Interactible
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
         ClearHint();
+
     }
 
     public void CloseDoor()

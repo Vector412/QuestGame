@@ -6,14 +6,18 @@ public class Key : Interactible
 {
     [SerializeField] GameObject screenKey;
     [SerializeField] GameObject key;
+    [SerializeField] public AudioClip drag;
     public override void DoActivate()
     {
+       
         if (Input.GetKeyDown(KeyCode.F))
         {
             screenKey.SetActive(true);
-            Destroy(key);
-          
-           
+            Collider collider = GetComponent<Collider>();
+            collider.enabled = false;
+            GetComponent<AudioSource>().PlayOneShot(drag);
+            ClearHint();
+            Destroy(key,0.5f);
         }
     }
 
