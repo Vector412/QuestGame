@@ -7,6 +7,7 @@ public class Safe : Interactible
 {
     [SerializeField] GameObject showSafe;
     [SerializeField] Animator animator;
+    [SerializeField] UiDoTween uiDoTween;
      [SerializeField] public AudioClip openSafe;
 
 
@@ -16,7 +17,9 @@ public class Safe : Interactible
         if (Input.GetKeyDown(KeyCode.F))
         {
             showSafe.gameObject.SetActive(true);
+            uiDoTween.Show();
         }
+       
     }
 
     public void Open()

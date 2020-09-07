@@ -8,8 +8,10 @@ public class Phone : Interactible
     [SerializeField] GameObject phoneIcon;
     [SerializeField] GameObject lockIcon;
     [SerializeField] GameObject[] lockIcons;
+
     [SerializeField] Text clock;
     [SerializeField] bool isActivePhone;
+    [SerializeField] UiDoTween uiDoTween;
     private bool phoneIsInterective;
 
 
@@ -35,7 +37,7 @@ public class Phone : Interactible
         {
             phoneIcon.gameObject.SetActive(true);
             phoneIsInterective = true;
-
+            uiDoTween.Show();
         }
 
     }
@@ -76,6 +78,8 @@ public class Phone : Interactible
     {
         clock.text = DayNight.Instance.Hours.ToString() + ":" + DayNight.Instance.Minutes.ToString();
     }
+
+   
 
 
 

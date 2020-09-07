@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class SafePanel : MonoBehaviour
 {
@@ -9,8 +10,14 @@ public class SafePanel : MonoBehaviour
     [SerializeField] string currentCode;
     [SerializeField] string code;
     [SerializeField] int lenghtCode;
+    [SerializeField] float duration;
 
-   
+    RectTransform rectTransform;
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+      
+    }
     public void CodePanel()
     {
         Safe safe = FindObjectOfType<Safe>();
