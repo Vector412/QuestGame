@@ -5,11 +5,24 @@ using UnityEngine;
 public class PhonePanel : MonoBehaviour
 {
     [SerializeField] GameObject[] hideIcons;
+    [SerializeField] GameObject file;
+    [SerializeField] GameObject button;
+    private int timeTame;
     public void HidePhone()
     {
         for (int i = 0; i < hideIcons.Length; i++)
         {
             hideIcons[i].SetActive(false);
+        }
+    }
+
+    public void TapButton()
+    {
+        timeTame++;
+        if (timeTame >= 2)
+        {
+            file.SetActive(true);
+            button.SetActive(false);
         }
     }
 }
