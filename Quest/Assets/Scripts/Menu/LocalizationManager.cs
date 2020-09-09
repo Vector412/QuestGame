@@ -48,6 +48,7 @@ public class LocalizationManager : MonoBehaviour
         string result = missingTextString;
         if (localizedText.ContainsKey(key))
         {
+           
             result = localizedText[key];
         }
         return result;
