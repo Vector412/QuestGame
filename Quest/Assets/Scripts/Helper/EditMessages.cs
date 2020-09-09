@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnterText : MonoBehaviour
+public class EditMessages : MonoBehaviour
 {
     [SerializeField] private string editText;
     [SerializeField] private Text inputField;
@@ -15,5 +15,14 @@ public class EnterText : MonoBehaviour
         textMessages.text += " " + editText.ToString();
         Debug.Log(11);
     }
-    
+
+
+    public void Clear()
+    {
+        for (int i = 0; i < textMessages.text.Length; i++)
+        {
+            textMessages.text = "";
+        }
+    }
+
 }

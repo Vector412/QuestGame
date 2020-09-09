@@ -8,15 +8,19 @@ public class Phone : Interactible
     [SerializeField] GameObject phoneIcon;
     [SerializeField] GameObject lockIcon;
     [SerializeField] GameObject[] lockIcons;
+    [SerializeField] GameObject files;
 
     [SerializeField] Text clock;
     [SerializeField] bool isActivePhone;
     [SerializeField] UiDoTween uiDoTween;
     private bool phoneIsInterective;
+    private bool textFileActive;
+
 
 
     public void Start()
     {
+
         if (isActivePhone)
         {
             lockIcon.gameObject.SetActive(true);
@@ -45,18 +49,22 @@ public class Phone : Interactible
     public void Update()
     {
         Clock();
-        if (Input.GetKeyDown(KeyCode.Space) && phoneIsInterective)
         {
+            if (Input.GetKeyDown(KeyCode.F1) && phoneIsInterective)
+            {
 
-            if (!isActivePhone)
-            {
-                Lock();
-            }
-            else
-            {
-                Unlock();
+                if (!isActivePhone)
+                {
+                    Lock();
+
+                }
+                else
+                {
+                    Unlock();
+                }
             }
         }
+
     }
 
     public void Unlock()
@@ -67,7 +75,7 @@ public class Phone : Interactible
     }
     public void Lock()
     {
-        for(int i = 0; i < lockIcons.Length; i++)
+        for (int i = 0; i < lockIcons.Length; i++)
         {
             lockIcons[i].SetActive(false);
         }
@@ -79,7 +87,7 @@ public class Phone : Interactible
         clock.text = DayNight.Instance.Hours.ToString() + ":" + DayNight.Instance.Minutes.ToString();
     }
 
-   
+
 
 
 

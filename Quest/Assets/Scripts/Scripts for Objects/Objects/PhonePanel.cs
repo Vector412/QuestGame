@@ -7,7 +7,7 @@ public class PhonePanel : MonoBehaviour
     [SerializeField] GameObject[] hideIcons;
     [SerializeField] GameObject file;
     [SerializeField] GameObject button;
-    private int timeTame;
+    private int timeTape;
     public void HidePhone()
     {
         for (int i = 0; i < hideIcons.Length; i++)
@@ -18,11 +18,12 @@ public class PhonePanel : MonoBehaviour
 
     public void TapButton()
     {
-        timeTame++;
-        if (timeTame >= 2)
+        timeTape++;
+        if (timeTape >= 2)
         {
             file.SetActive(true);
             button.SetActive(false);
+            timeTape = 0;
         }
     }
 }
