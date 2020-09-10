@@ -7,8 +7,10 @@ public class Phone : Interactible
 {
     [SerializeField] GameObject phoneIcon;
     [SerializeField] GameObject lockIcon;
+
+    [SerializeField] GameObject txtFile;
+   
     [SerializeField] GameObject[] lockIcons;
-    [SerializeField] GameObject files;
 
     [SerializeField] Text clock;
     [SerializeField] bool isActivePhone;
@@ -37,11 +39,14 @@ public class Phone : Interactible
 
     public override void DoActivate()
     {
+       
         if (Input.GetKeyDown(KeyCode.F))
         {
             phoneIcon.gameObject.SetActive(true);
             phoneIsInterective = true;
             uiDoTween.Show();
+            ClearHint();
+          
         }
 
     }
@@ -70,6 +75,7 @@ public class Phone : Interactible
     public void Unlock()
     {
         lockIcon.gameObject.SetActive(true);
+        txtFile.gameObject.SetActive(true);
         isActivePhone = false;
 
     }
@@ -78,6 +84,7 @@ public class Phone : Interactible
         for (int i = 0; i < lockIcons.Length; i++)
         {
             lockIcons[i].SetActive(false);
+            
         }
         isActivePhone = true;
     }

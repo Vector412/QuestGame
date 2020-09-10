@@ -18,6 +18,7 @@ public class Safe : Interactible
         {
             showSafe.gameObject.SetActive(true);
             uiDoTween.Show();
+            ClearHint();
         }
        
     }

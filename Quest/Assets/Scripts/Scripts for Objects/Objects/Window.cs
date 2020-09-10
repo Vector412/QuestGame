@@ -5,27 +5,41 @@ using UnityEngine;
 public class Window : Interactible, IDestructible
 {
     [SerializeField] Animator animator;
-    [SerializeField] bool isOpen = false;
-    [SerializeField] public AudioClip destroyWindow;
+    bool isOpen = false;
+    [SerializeField] private AudioClip destroyWindow;
+    [SerializeField] float  maxValue = 1;
+    [SerializeField] float  minValue= 0.5f;
+    [SerializeField] AudioSource sound;
 
+    public void Start()
+    {
+       
+          sound.volume = 0.5f;
+      
+    }
     public override void DoActivate()
     {
+      
         if (Input.GetKeyDown(KeyCode.F))
         {
-            if (!isOpen)
-            {
-                animator.SetTrigger("Open");
-                isOpen = false;
-               
-            }
-            else
-            {
-                animator.SetTrigger("Close");
-                isOpen = true;
-            }
+            OpenClose();
         }
     }
 
+    public void OpenClose()
+    {
+        isOpen = !isOpen;
+        if (isOpen)
+        {
+            sound.volume = maxValue;
+        }
+        else
+        {
+            sound.volume = minValue;
+        }
+        animator.SetBool("isOpen", isOpen);
+    }
+   
     public void DestroyObjects()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -35,6 +49,7 @@ public class Window : Interactible, IDestructible
             Collider collider = GetComponent<Collider>();
             collider.enabled = false;
             ClearHint();
+            sound.volume = 1f;
         }
     }
 }

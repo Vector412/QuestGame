@@ -26,7 +26,7 @@ public class UiDoTween : MonoBehaviour
   
     public void Show()
     {
-        gameObject.SetActive(true);
+       gameObject.SetActive(true);
         rectTransform.DOAnchorPosY(startPos, duration);
 
 
