@@ -467,11 +467,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 816b6eab58d24c646a55f35fb63b0f1f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 61494125f3dda784698ad58ddea3e707, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -606,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104928904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.41, y: 9.78, z: -8.99}
+  m_LocalPosition: {x: 14.41, y: 9.78, z: -11.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1581,6 +1581,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 543784767072265344, guid: 221d91812d0aaff43a41a2575dd43652,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 2363261445923612830, guid: 221d91812d0aaff43a41a2575dd43652,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1975,6 +1980,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623233104646053769, guid: 221d91812d0aaff43a41a2575dd43652,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623233104646053769, guid: 221d91812d0aaff43a41a2575dd43652,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.31115243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623233104646053769, guid: 221d91812d0aaff43a41a2575dd43652,
+        type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.18422928
       objectReference: {fileID: 0}
     - target: {fileID: 7314123607725793441, guid: 221d91812d0aaff43a41a2575dd43652,
         type: 3}
@@ -4906,9 +4926,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 816b6eab58d24c646a55f35fb63b0f1f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.57
+  m_Volume: 0.09
   m_Pitch: 1
   Loop: 1
   Mute: 0
