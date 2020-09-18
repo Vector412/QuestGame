@@ -45,11 +45,13 @@ public class Window : Interactible, IDestructible
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<AudioSource>().PlayOneShot(destroyWindow);
-            Destroy(gameObject,0.5f);
+            BreakableWindow window = GetComponent<BreakableWindow>();
+            window.breakWindow();
+            Destroy(gameObject, 1f);
             Collider collider = GetComponent<Collider>();
             collider.enabled = false;
             ClearHint();
-            sound.volume = 1f;
+            sound.volume = maxValue;
         }
     }
 }

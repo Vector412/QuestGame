@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Player : GenericSingletonClass<Player>
 {
@@ -14,6 +15,7 @@ public class Player : GenericSingletonClass<Player>
     [SerializeField] public LayerMask Ground;
     [SerializeField] public GameObject screenKey;
     //[SerializeField] GameObject light;
+    [SerializeField] GameObject cameraMain;
   
     [SerializeField] private LayerMask Things;
     Interactible interactible;
@@ -21,15 +23,27 @@ public class Player : GenericSingletonClass<Player>
     RaycastHit hit;
     public bool isGround;
     Vector3 velocity;
-   
+    private PhotonView photonView;
+    
+
+    public void Start()
+    {
+        photonView = GetComponent<PhotonView>();
+        cameraMain.gameObject.SetActive(true);
+      
+    }
+
     void Update()
     {
+        if (!photonView.IsMine) return;
         MovePlayer();
         FindOutWhatisObject();
     }
 
     void MovePlayer()
     {
+       
+
         isGround = Physics.CheckSphere(groundCheck.position, groundDistance, Ground);
         if (isGround && velocity.y < 0)
         {

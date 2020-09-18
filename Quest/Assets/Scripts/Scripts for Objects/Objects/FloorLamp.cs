@@ -38,9 +38,9 @@ public class FloorLamp : Interactible, IDestructible
         }
     }
 
-    public void Light(bool gameObjActive, bool isLight, AudioClip audioClip)
+    public void Light(bool isGameObjActive, bool isLight, AudioClip audioClip)
     {
-        light.gameObject.SetActive(gameObjActive);
+        light.gameObject.SetActive(isGameObjActive);
         isActiveLight = isLight;
         GetComponent<AudioSource>().PlayOneShot(audioClip);
     }

@@ -21,6 +21,12 @@ public class DayNight : GenericSingletonClass<DayNight>
 
     private int lastMinute;
 
+
+    private void Awake()
+    {
+        base.Awake();
+        Debug.Log("!!!"+ gameObject.name);
+    }
     void Start()
     {
         hourDuration = (float)DayDuration / 24;
