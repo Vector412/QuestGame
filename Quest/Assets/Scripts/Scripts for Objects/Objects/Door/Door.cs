@@ -20,7 +20,7 @@ public class Door : Interactible
 
              
             }
-            else if (keyScreen.activeInHierarchy == false)
+            else
             {
                 CloseDoor();
             }

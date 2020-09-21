@@ -8,7 +8,7 @@ public class Safe : Interactible
     [SerializeField] GameObject showSafe;
     [SerializeField] Animator animator;
     [SerializeField] UiDoTween uiDoTween;
-     [SerializeField] public AudioClip openSafe;
+     [SerializeField] AudioClip openSafe, closeSafe;
 
 
 
@@ -34,7 +34,7 @@ public class Safe : Interactible
 
     public void Close()
     {
-        Debug.Log("Close");
+        GetComponent<AudioSource>().PlayOneShot(closeSafe);
     }
     
     

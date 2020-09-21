@@ -11,20 +11,21 @@ public class SafePanel : MonoBehaviour
     [SerializeField] string code;
     [SerializeField] int lenghtCode;
     [SerializeField] float duration;
+    [SerializeField] Safe safe;
 
     RectTransform rectTransform;
     private void Awake()
     {
+        safe = GetComponent<Safe>();
         rectTransform = GetComponent<RectTransform>();
       
     }
     public void CodePanel()
     {
-        Safe safe = FindObjectOfType<Safe>();
-
+      
         if (currentCode == code)
         {
-          
+           
             safe.Open();
         }
         else
@@ -38,7 +39,7 @@ public class SafePanel : MonoBehaviour
     {
         if (currentCode.Length >= lenghtCode)
         {
-            currentCode = "";
+            currentCode = string.Empty;
         }
         currentCode += number;
         Debug.Log(number);
@@ -47,12 +48,8 @@ public class SafePanel : MonoBehaviour
 
     public void Clear()
     {
-        for (int i = 0; i < currentCode.Length; i++)
-        {
-            currentCode = "";
+            currentCode = string.Empty;
             codeText.text = currentCode;
-
-        }
     }
 
    

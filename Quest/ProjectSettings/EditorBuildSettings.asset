@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ScenesTestPhoton/UiPhoton.unity
     guid: cee024206ba501f4b93dae7a5ae1a0c5
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MultiPlayer.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 15fb1dc6465826e46b0e6179df7c10c7
   m_configObjects: {}

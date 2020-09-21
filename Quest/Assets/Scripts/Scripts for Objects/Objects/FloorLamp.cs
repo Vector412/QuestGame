@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloorLamp : Interactible, IDestructible
 {
     [SerializeField] GameObject light ;
-    [SerializeField] public AudioClip destroyLamp, onLight;
+    [SerializeField] AudioClip destroyLamp, onLight;
 
     [SerializeField] bool isActiveLight;
 

@@ -12,17 +12,16 @@ public class EditMessages : MonoBehaviour
     public void InputText()
     {
         editText = inputField.text;
-        textMessages.text += " " + editText.ToString();
+        textMessages.text += " " + editText.ToString(); // 
         Debug.Log(11);
     }
 
 
     public void Clear()
     {
-        for (int i = 0; i < textMessages.text.Length; i++)
-        {
-            textMessages.text = "";
-        }
+       
+            textMessages.text =string.Empty;
+        
     }
 
 }

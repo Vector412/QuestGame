@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Phone : Interactible
@@ -22,25 +20,15 @@ public class Phone : Interactible
 
     public void Start()
     {
-
-        if (isActivePhone)
-        {
-            lockIcon.gameObject.SetActive(true);
-            isActivePhone = false;
-
-        }
-        else
-        {
-            lockIcon.gameObject.SetActive(false);
-            isActivePhone = true;
-        }
+        lockIcon.gameObject.SetActive(isActivePhone);
+        isActivePhone = !isActivePhone;
     }
 
 
     public override void DoActivate()
     {
        
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F)) // input manager
         {
             phoneIcon.gameObject.SetActive(true);
             phoneIsInterective = true;
@@ -57,8 +45,7 @@ public class Phone : Interactible
         {
             if (Input.GetKeyDown(KeyCode.F1) && phoneIsInterective)
             {
-
-                if (!isActivePhone)
+                if (!isActivePhone) // заменить 
                 {
                     Lock();
 
@@ -81,6 +68,7 @@ public class Phone : Interactible
     }
     public void Lock()
     {
+        //разить канвас
         for (int i = 0; i < lockIcons.Length; i++)
         {
             lockIcons[i].SetActive(false);
@@ -91,7 +79,7 @@ public class Phone : Interactible
 
     public void Clock()
     {
-        clock.text = DayNight.Instance.Hours.ToString() + ":" + DayNight.Instance.Minutes.ToString();
+        clock.text = $"{DayNight.Instance.Hours}:{DayNight.Instance.Minutes}";
     }
 
 

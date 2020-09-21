@@ -22,7 +22,7 @@ public class DayNight : GenericSingletonClass<DayNight>
     private int lastMinute;
 
 
-    private void Awake()
+    public override void Awake()
     {
         base.Awake();
         Debug.Log("!!!"+ gameObject.name);

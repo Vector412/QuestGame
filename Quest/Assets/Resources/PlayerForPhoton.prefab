@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3577985649596104517}
   m_Layer: 0
   m_Name: PlayerForPhoton
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
