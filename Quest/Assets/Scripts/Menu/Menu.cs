@@ -26,16 +26,22 @@ public class Menu : MonoBehaviour
 
     public void Continue()
     {
-
+        SceneManager.LoadScene(3);
     }
 
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
+        PlayerPrefs.DeleteKey("p_x");
+        PlayerPrefs.DeleteKey("p_y");
+        PlayerPrefs.DeleteKey("TimeToLoad");
+        PlayerPrefs.DeleteKey("Saved");
+        SceneManager.LoadScene(3);
     }
 
     public void ExitApp()
     {
         Application.Quit();
     }
+
+    
 }

@@ -20,6 +20,15 @@ public class SinglePlayer : MonoBehaviour
     public bool isGround;
     Vector3 velocity;
 
+    SaveLoad playerPosData;
+
+
+    private void Awake()
+    {
+        playerPosData = FindObjectOfType<SaveLoad>();
+        playerPosData.PlayerPosLoad();
+    }
+
     void Update()
     {
 

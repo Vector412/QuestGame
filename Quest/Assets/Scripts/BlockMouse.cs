@@ -9,10 +9,12 @@ public class BlockMouse : MonoBehaviour
     void Start()
     {
         SetCursorLock(isLocked);
+        Cursor.visible = false;
     }
 
     void SetCursorLock(bool isLocked)
     {
+      
         this.isLocked = isLocked;
         Screen.lockCursor = isLocked;
         Cursor.visible = !isLocked;
@@ -23,7 +25,10 @@ public class BlockMouse : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SetCursorLock(!isLocked);
+           
+
         }
-            
+      
+
     }
 }
