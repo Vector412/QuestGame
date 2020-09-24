@@ -14,11 +14,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        NumberPlayer = 0;
-        Debug.Log(111);
+      
         PhotonNetwork.NickName = "Player" + " " + Random.Range(1, 10);
         Log("Player is name is set to" + " " + PhotonNetwork.NickName);
-
         PhotonNetwork.AutomaticallySyncScene = true; // автопереключение сцены
         PhotonNetwork.GameVersion = "1";
         PhotonNetwork.ConnectUsingSettings(); // подключение к мастер серверу
@@ -39,15 +37,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void CreetRoom()
     {
-            PhotonNetwork.CreateRoom(null, new Photon.Realtime.RoomOptions { MaxPlayers = 5 });
+            PhotonNetwork.CreateRoom(null, new Photon.Realtime.RoomOptions { MaxPlayers = 2});
       
             
     }
     public void JoinRoom()
     {
-        NumberPlayer++;
         PhotonNetwork.JoinRandomRoom();
-
     }
 
     public override void OnJoinedRoom()

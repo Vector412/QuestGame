@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: -5224182478395229217}
   - component: {fileID: -383743629670275410}
   - component: {fileID: 3577985649596104517}
+  - component: {fileID: -8816079963035183682}
   m_Layer: 0
   m_Name: PlayerForPhoton
   m_TagString: Player
@@ -371,6 +372,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a6e29d2ccf40a44b922d1696ae6f60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8816079963035183682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068502369503617545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4b68245f08b44438ede862c9a30869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2068502369557206713

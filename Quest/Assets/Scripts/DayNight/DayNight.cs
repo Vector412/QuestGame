@@ -25,7 +25,6 @@ public class DayNight : GenericSingletonClass<DayNight>
     public override void Awake()
     {
         base.Awake();
-        Debug.Log("!!!"+ gameObject.name);
     }
     void Start()
     {

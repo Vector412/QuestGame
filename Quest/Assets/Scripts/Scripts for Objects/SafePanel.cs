@@ -10,13 +10,12 @@ public class SafePanel : MonoBehaviour
     [SerializeField] string currentCode;
     [SerializeField] string code;
     [SerializeField] int lenghtCode;
-    [SerializeField] float duration;
-    [SerializeField] Safe safe;
+    Safe safe;
 
     RectTransform rectTransform;
     private void Awake()
     {
-        safe = GetComponent<Safe>();
+        safe = FindObjectOfType<Safe>();
         rectTransform = GetComponent<RectTransform>();
       
     }

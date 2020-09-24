@@ -3,24 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Safe : Interactible 
+public class Safe : Interactible
 {
     [SerializeField] GameObject showSafe;
     [SerializeField] Animator animator;
     [SerializeField] UiDoTween uiDoTween;
-     [SerializeField] AudioClip openSafe, closeSafe;
+    [SerializeField] AudioClip openSafe, closeSafe;
 
 
-
+ 
     public override void DoActivate()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            showSafe.gameObject.SetActive(true);
-            uiDoTween.Show();
-            ClearHint();
-        }
-       
+        showSafe.gameObject.SetActive(true);
+        uiDoTween.Show();
     }
 
     public void Open()
@@ -36,13 +31,5 @@ public class Safe : Interactible
     {
         GetComponent<AudioSource>().PlayOneShot(closeSafe);
     }
-    
-    
-
-  
-
-
-
-
 
 }

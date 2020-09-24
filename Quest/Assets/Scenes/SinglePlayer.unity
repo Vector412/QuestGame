@@ -1893,7 +1893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -125.4, y: -77.6}
+  m_AnchoredPosition: {x: -125.3999, y: -77.6001}
   m_SizeDelta: {x: 250.87183, y: 155.20056}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &143458567
@@ -3102,6 +3102,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 191978375}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &191978377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191978376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4b68245f08b44438ede862c9a30869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &194880048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4391976436198210, guid: b48086d9f175aa34b947a21c8056c3d2,
@@ -5027,6 +5039,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3204424918445746177, guid: 221d91812d0aaff43a41a2575dd43652,
+        type: 3}
+      propertyPath: m_Text
+      value: '
+
+        2
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 3204424918513219371, guid: 221d91812d0aaff43a41a2575dd43652,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -5352,6 +5373,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7379701062003680256, guid: 221d91812d0aaff43a41a2575dd43652,
+        type: 3}
+      propertyPath: safe
+      value: 
+      objectReference: {fileID: 756792422}
     - target: {fileID: 8513650843454802804, guid: 221d91812d0aaff43a41a2575dd43652,
         type: 3}
       propertyPath: m_IsActive
@@ -26557,5 +26583,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenWindow
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5705338031297239140, guid: 2cf498e4d70756f458212ceec4edaa94, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2cf498e4d70756f458212ceec4edaa94, type: 3}

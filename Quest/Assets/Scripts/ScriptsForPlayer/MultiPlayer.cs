@@ -30,7 +30,9 @@ public class MultiPlayer : GenericSingletonClass<MultiPlayer>
     {
         photonView = GetComponent<PhotonView>();
         cameraMain.gameObject.SetActive(true);
-      
+        InputManager.Instance.Activate += InteractiveThing;
+        InputManager.Instance.Deactivate += DestroyThing;
+
     }
 
     void Update()
@@ -74,8 +76,7 @@ public class MultiPlayer : GenericSingletonClass<MultiPlayer>
             {
                 destructible = hitObj.GetComponent<IDestructible>();
                 interactible = hitObj.GetComponent<Interactible>();
-                InteractiveThing();
-                DestroyThing();
+                Hint();
             }
         }
         else if(interactible!= null)
@@ -85,23 +86,29 @@ public class MultiPlayer : GenericSingletonClass<MultiPlayer>
         }
 
     }
-
-    public void InteractiveThing()
-    { 
+    public void Hint()
+    {
         if (interactible != null)
         {
             interactible.ShowHint();
+        }
+
+    }
+    public void InteractiveThing()
+    {
+        if (interactible != null)
+        {
             interactible.DoActivate();
         }
     }
 
     public void DestroyThing()
     {
-        
+
         if (destructible != null)
         {
             destructible.DestroyObjects();
-          
+
         }
     }
 }

@@ -28,6 +28,12 @@ public class SinglePlayer : MonoBehaviour
         playerPosData = FindObjectOfType<SaveLoad>();
         playerPosData.PlayerPosLoad();
     }
+    private void Start()
+    {
+        InputManager.Instance.Activate += InteractiveThing;
+        InputManager.Instance.Deactivate += DestroyThing;
+
+    }
 
     void Update()
     {
@@ -70,23 +76,30 @@ public class SinglePlayer : MonoBehaviour
             {
                 destructible = hitObj.GetComponent<IDestructible>();
                 interactible = hitObj.GetComponent<Interactible>();
-                InteractiveThing();
-                DestroyThing();
+                Hint();
             }
         }
         else if (interactible != null)
         {
             interactible.ClearHint();
             interactible = null;
+           
         }
 
     }
 
-    public void InteractiveThing()
+    public void Hint()
     {
         if (interactible != null)
         {
             interactible.ShowHint();
+        }
+       
+    }
+    public void InteractiveThing()
+    {
+        if (interactible != null)
+        {
             interactible.DoActivate();
         }
     }

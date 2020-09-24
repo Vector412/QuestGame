@@ -33,7 +33,6 @@ public class UiDoTween : MonoBehaviour
     }
     public void Hide()
     {
-        Debug.Log("Hide");
         rectTransform.DOAnchorPosY(endPos, duration).SetRelative(true).OnComplete(() => gameObject.SetActive(false));
     }
 

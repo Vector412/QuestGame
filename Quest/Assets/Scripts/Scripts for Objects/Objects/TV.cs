@@ -6,29 +6,22 @@ public class TV : Interactible, IDestructible
 {
     [SerializeField] GameObject tv;
     [SerializeField] AudioClip destroyTv, turnOn;
-    
+
     private bool isTurnOn = true;
+
+
     public void DestroyObjects()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<AudioSource>().PlayOneShot(destroyTv);
-            Collider collider = GetComponent<Collider>();
-            collider.enabled = false;
-            ClearHint();
-            tv.gameObject.SetActive(false);
-
-
-        }
-      
+        GetComponent<AudioSource>().PlayOneShot(destroyTv);
+        Collider collider = GetComponent<Collider>();
+        collider.enabled = false;
+        ClearHint();
+        tv.gameObject.SetActive(false);
     }
     public override void DoActivate()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            tv.gameObject.SetActive(isTurnOn);
-            isTurnOn = !isTurnOn;
-            GetComponent<AudioSource>().PlayOneShot(turnOn);           
-        }
+        tv.gameObject.SetActive(isTurnOn);
+        isTurnOn = !isTurnOn;
+        GetComponent<AudioSource>().PlayOneShot(turnOn);
     }
 }

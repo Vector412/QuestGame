@@ -7,23 +7,18 @@ public class Door : Interactible
     [SerializeField] public AudioClip openDoor, closeDoor;
     [SerializeField] Animator animDoor;
     [SerializeField] GameObject keyScreen;
-  
 
+  
     public override void DoActivate()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (keyScreen.activeInHierarchy == true)
         {
-            if (keyScreen.activeInHierarchy == true)
-            {
-                OpenDoor();
-                DeactivateDoor();
-
-             
-            }
-            else
-            {
-                CloseDoor();
-            }
+            OpenDoor();
+            DeactivateDoor();
+        }
+        else
+        {
+            CloseDoor();
         }
     }
 

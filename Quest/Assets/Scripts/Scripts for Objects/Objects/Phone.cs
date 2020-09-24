@@ -7,14 +7,13 @@ public class Phone : Interactible
     [SerializeField] GameObject lockIcon;
 
     [SerializeField] GameObject txtFile;
-   
+
     [SerializeField] GameObject[] lockIcons;
 
     [SerializeField] Text clock;
     [SerializeField] bool isActivePhone;
     [SerializeField] UiDoTween uiDoTween;
     private bool phoneIsInterective;
-    private bool textFileActive;
 
 
 
@@ -22,21 +21,16 @@ public class Phone : Interactible
     {
         lockIcon.gameObject.SetActive(isActivePhone);
         isActivePhone = !isActivePhone;
+
     }
 
 
     public override void DoActivate()
     {
-       
-        if (Input.GetKeyDown(KeyCode.F)) // input manager
-        {
-            phoneIcon.gameObject.SetActive(true);
-            phoneIsInterective = true;
-            uiDoTween.Show();
-            ClearHint();
-          
-        }
-
+        phoneIcon.gameObject.SetActive(true);
+        phoneIsInterective = true;
+        uiDoTween.Show();
+        ClearHint();
     }
 
     public void Update()
@@ -45,34 +39,24 @@ public class Phone : Interactible
         {
             if (Input.GetKeyDown(KeyCode.F1) && phoneIsInterective)
             {
-                if (!isActivePhone) // заменить 
-                {
-                    Lock();
-
-                }
-                else
-                {
-                    Unlock();
-                }
+                LockUnlock();
             }
         }
 
     }
 
-    public void Unlock()
+    public void LockUnlock()
     {
-        lockIcon.gameObject.SetActive(true);
-        txtFile.gameObject.SetActive(true);
-        isActivePhone = false;
-
+        lockIcon.gameObject.SetActive(isActivePhone);
+        txtFile.gameObject.SetActive(isActivePhone);
+        isActivePhone = !isActivePhone;
     }
     public void Lock()
     {
-        //разить канвас
         for (int i = 0; i < lockIcons.Length; i++)
         {
             lockIcons[i].SetActive(false);
-            
+
         }
         isActivePhone = true;
     }

@@ -13,7 +13,7 @@ public class EditMessages : MonoBehaviour
     {
         editText = inputField.text;
         textMessages.text += " " + editText.ToString(); // 
-        Debug.Log(11);
+
     }
 
 
