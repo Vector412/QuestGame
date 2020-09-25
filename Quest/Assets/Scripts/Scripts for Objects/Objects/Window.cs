@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(WindowSave))]
 public class Window : Interactible, IDestructible
 {
     [SerializeField] Animator animator;
@@ -10,11 +10,26 @@ public class Window : Interactible, IDestructible
     [SerializeField] float minValue = 0.5f;
     [SerializeField] AudioSource sound;
 
-    bool isOpen = false;
+    [SerializeField] WindowSave save;
 
+
+    private void Awake()
+    {
+        save = GetComponent<WindowSave>();
+      
+    }
     public void Start()
     {
         sound.volume = minValue;
+        if (save.isOpen)
+        {
+            sound.volume = maxValue;
+        }
+        else
+        {
+            sound.volume = minValue;
+        }
+        animator.SetBool("isOpen", save.isOpen);
     }
     public override void DoActivate()
     {
@@ -23,8 +38,8 @@ public class Window : Interactible, IDestructible
 
     public void OpenClose()
     {
-        isOpen = !isOpen;
-        if (isOpen)
+        save.isOpen = !save.isOpen;
+        if (save.isOpen)
         {
             sound.volume = maxValue;
         }
@@ -32,7 +47,7 @@ public class Window : Interactible, IDestructible
         {
             sound.volume = minValue;
         }
-        animator.SetBool("isOpen", isOpen);
+        animator.SetBool("isOpen", save.isOpen);
     }
 
     public void DestroyObjects()

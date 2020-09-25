@@ -1,18 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(FloorLampSave))]
 public class FloorLamp : Interactible, IDestructible
 {
-    [SerializeField] GameObject light;
-    [SerializeField] AudioClip destroyLamp, onLight;
-    [SerializeField] bool isActiveLight;
-
-
+    [SerializeField] public new GameObject light;
+    [SerializeField] public AudioClip destroyLamp, onLight;
+    FloorLampSave save;
+    private void Awake()
+    {
+        save = GetComponent<FloorLampSave>();
+        
+    }
     public void Start()
     {
 
-        if (isActiveLight)
+        if (!save.isActiveLight)
         {
             Light(true, false, onLight);
         }
@@ -22,9 +26,10 @@ public class FloorLamp : Interactible, IDestructible
         }
     }
 
+
     public override void DoActivate()
     {
-        if (!isActiveLight)
+        if (!save.isActiveLight)
         {
             Light(false, true, onLight);
         }
@@ -37,7 +42,7 @@ public class FloorLamp : Interactible, IDestructible
     public void Light(bool isGameObjActive, bool isLight, AudioClip audioClip)
     {
         light.gameObject.SetActive(isGameObjActive);
-        isActiveLight = isLight;
+        save.isActiveLight = isLight;
         GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 

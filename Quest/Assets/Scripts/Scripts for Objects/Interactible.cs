@@ -7,9 +7,18 @@ public abstract class Interactible : MonoBehaviour
 {
     [SerializeField] GameObject hint;
 
-    public void ShowHint() => hint.gameObject.SetActive(true);
-    public void ClearHint() => hint.gameObject.SetActive(false);
-   
+    public void ShowHint()
+    {
+        if(hint)
+        hint.gameObject.SetActive(true);
+    }
+
+    public void ClearHint()
+    {
+        if(hint)
+        hint.gameObject.SetActive(false);
+    }
+
     public virtual void DoActivate()
     {
         Debug.Log("DoActivate");

@@ -5,18 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Quit : MonoBehaviour
 {
-
-    SaveLoad playerposData;
-
-    private void Start()
+   public void Exit()
     {
-        playerposData = FindObjectOfType<SaveLoad>();
+        SceneManager.LoadScene(0);
     }
-    public void Exit()
-    {
-        playerposData.PlayerposSave();
-        SceneManager.LoadScene(2);
-    }
-
-
 }

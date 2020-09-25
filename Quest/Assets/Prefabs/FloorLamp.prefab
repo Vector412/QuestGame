@@ -187,10 +187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b367121c728e04ca8a2abe5071d792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: Floor Lamp 1
   hint: {fileID: 0}
-  light: {fileID: 0}
-  destroyLamp: {fileID: 0}
-  isActiveLight: 0
+  light: {fileID: 202385594}
+  destroyLamp: {fileID: 8300000, guid: 5c2f5ca33485fbd42a9e7af0cf292651, type: 3}
+  onLight: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+  isActiveLight: 1
 --- !u!65 &4511151534590224312
 BoxCollider:
   m_ObjectHideFlags: 0

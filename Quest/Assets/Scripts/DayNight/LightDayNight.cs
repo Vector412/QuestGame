@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightDayNight : MonoBehaviour
 {
+   
     [SerializeField][Tooltip("Настроить градиент для дня и ночи")]private Gradient colorNightDay;
 
     [SerializeField][Tooltip("Источник для света")] private Light directionLight;
@@ -17,4 +18,18 @@ public class LightDayNight : MonoBehaviour
     {
         directionLight.color = colorNightDay.Evaluate(DayNight.Instance.ProgressDay);
     }
+
+
+
+    //private void OnEnable()
+    //{
+    //    Load();
+    //}
+
+    //private void OnDisable()
+    //{
+    //    DayNight.Instance.TimeChanged += UpdateLightForDay;
+    //    Save();
+    //}
+
 }

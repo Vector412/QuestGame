@@ -1,19 +1,67 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEditor;
 
-public class LocalizedTextEditor : MonoBehaviour
+public class LocalizedTextEditor : EditorWindow
 {
-    // Start is called before the first frame update
-    void Start()
+    public LocalizationData localizationData;
+
+
+    [MenuItem("Window/LocalizedText")]
+    static void Init()
     {
-        
+        EditorWindow.GetWindow(typeof(LocalizedTextEditor)).Show();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnGUI()
     {
-        
+        if(localizationData != null)
+        {
+            SerializedObject serializedObject = new SerializedObject (this);
+            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData");
+            EditorGUILayout.PropertyField(serializedProperty, true);
+            serializedObject.ApplyModifiedProperties();
+
+            if(GUILayout.Button("Save data"))
+            {
+                SaveGameData();
+            }
+        }
+
+        if(GUILayout.Button("Load data"))
+        {
+            LoadGameData();
+        }
+        if(GUILayout.Button("Create new data"))
+        {
+            CreateNewData();
+        }
+    }
+    private void LoadGameData()
+    {
+        string filePath = EditorUtility.OpenFilePanel("Select localizqation data file", Application.streamingAssetsPath, "json");
+        if (!string.IsNullOrEmpty(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            localizationData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
+        }
+    }
+
+    private void SaveGameData()
+    {
+        string filePath = EditorUtility.SaveFilePanel("Save localization file", Application.streamingAssetsPath, "", "json");
+
+        if (!string.IsNullOrEmpty(filePath))
+        {
+            string dataAsJson = JsonUtility.ToJson(localizationData);
+            File.WriteAllText(filePath, dataAsJson);
+        }
+    }
+
+    private void CreateNewData()
+    {
+        localizationData = new LocalizationData();
     }
 }

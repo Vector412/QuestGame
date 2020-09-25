@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
@@ -9,12 +10,13 @@ public class Win : MonoBehaviour
 
     [SerializeField] private int delay =5 ;
 
- 
+  
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("You are winner!");
+            PlayerPrefs.SetString("IsEnd", "WIN");
             StartCoroutine(Winnner());
         }
     }

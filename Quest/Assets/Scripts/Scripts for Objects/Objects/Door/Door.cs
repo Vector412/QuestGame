@@ -27,6 +27,7 @@ public class Door : Interactible
         animDoor = GetComponent<Animator>();
         GetComponent<AudioSource>().PlayOneShot(openDoor);
         animDoor.SetBool("isOpen", true);
+        keyScreen.SetActive(false);
     }
 
     public void DeactivateDoor()

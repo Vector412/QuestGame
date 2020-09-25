@@ -2,4 +2,5 @@
 	[{"key":"game_continue", "value":"Continue"},	
 	 {"key":"start_button", "value":"New Game"},
 	 {"key":"options_button","value":"Options"},
-	 {"key":"quit_button", "value":"Quit"}]}
+	 {"key":"quit_button", "value":"Quit"},
+	 {"key":"game_multiplayer", "value":"Multiplayer"}]}

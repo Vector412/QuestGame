@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
-    [SerializeField]
-    public GameObject optionScreen;
     [SerializeField]
     public GameObject menuScreen;
 
@@ -15,27 +12,28 @@ public class Menu : MonoBehaviour
     public void Options()
     {
         menuScreen.SetActive(false);
-        optionScreen.SetActive(true);
+
     }
 
     public void Back()
     {
         menuScreen.SetActive(true);
-        optionScreen.SetActive(false);
-    }
+   }
 
     public void Continue()
     {
+        SaveLoad.Instance.IsNewGame = !(PlayerPrefs.GetString("IsEnd", "") == "");
         SceneManager.LoadScene(3);
     }
 
     public void NewGame()
     {
-        PlayerPrefs.DeleteKey("p_x");
-        PlayerPrefs.DeleteKey("p_y");
-        PlayerPrefs.DeleteKey("TimeToLoad");
-        PlayerPrefs.DeleteKey("Saved");
+        SaveLoad.Instance.IsNewGame = true;
         SceneManager.LoadScene(3);
+    }
+    public void Multiplayer()
+    {
+        SceneManager.LoadScene(2);
     }
 
     public void ExitApp()
@@ -43,5 +41,9 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
-    
+    public void ToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

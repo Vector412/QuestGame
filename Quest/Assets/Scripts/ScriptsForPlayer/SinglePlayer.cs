@@ -1,14 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SinglePlayer : MonoBehaviour
+[RequireComponent(typeof(CharacterController))]
+public class SinglePlayer : SaveObject
 {
-    public CharacterController controller;
+    [NonSerialized] public CharacterController controller;
     [SerializeField] private float ver, hor;
     [SerializeField] private float speed = 10;
     [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private float rayDistance = 3;
     [SerializeField] private LayerMask Ground;
@@ -20,13 +20,27 @@ public class SinglePlayer : MonoBehaviour
     public bool isGround;
     Vector3 velocity;
 
-    SaveLoad playerPosData;
 
+    public Vector3 positinToSave;
+    private void OnEnable()
+    {
+        Load();
 
+        if (positinToSave != Vector3.zero)
+        {
+            transform.position = positinToSave;
+        }
+    }
+
+    private void OnDisable()
+    {
+        positinToSave = transform.position;
+        Save();
+    }
     private void Awake()
     {
-        playerPosData = FindObjectOfType<SaveLoad>();
-        playerPosData.PlayerPosLoad();
+        controller = GetComponent<CharacterController>();
+
     }
     private void Start()
     {
@@ -44,9 +58,6 @@ public class SinglePlayer : MonoBehaviour
 
     void MovePlayer()
     {
-
-
-        isGround = Physics.CheckSphere(groundCheck.position, groundDistance, Ground);
         if (isGround && velocity.y < 0)
         {
             velocity.y = -2f;
@@ -83,7 +94,7 @@ public class SinglePlayer : MonoBehaviour
         {
             interactible.ClearHint();
             interactible = null;
-           
+
         }
 
     }
@@ -94,7 +105,7 @@ public class SinglePlayer : MonoBehaviour
         {
             interactible.ShowHint();
         }
-       
+
     }
     public void InteractiveThing()
     {

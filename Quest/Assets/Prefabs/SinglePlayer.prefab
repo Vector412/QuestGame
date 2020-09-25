@@ -316,12 +316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c63358a2ed1b784883155f378856291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 2068502369503617546}
+  path: 
   ver: 0
   hor: 0
   speed: 10
   gravity: -9.81
-  groundCheck: {fileID: 2068502369557206714}
   groundDistance: 0.4
   rayDistance: 7
   Ground:
@@ -332,6 +331,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   isGround: 0
+  positinToSave: {x: 0, y: 0, z: 0}
 --- !u!1 &2068502369557206713
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 3708123614952234617}
   - component: {fileID: 1207160755}
   - component: {fileID: 1207160756}
+  - component: {fileID: 8189970739102700972}
   m_Layer: 0
   m_Name: CameraAndLight
   m_TagString: Untagged
@@ -450,5 +451,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39201b0587d34c44f967d488ac09b9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayDuration: 30
-  startDayHour: 12
+  save: {fileID: 0}
+--- !u!114 &8189970739102700972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3210628803444684799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763efbba001db114ca991ada943cdab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Day
+  DayDuration: 240
+  startDayHour: 0
